@@ -25,20 +25,51 @@
 #ifndef INCLUDED_flixel_group_FlxTypedGroup
 #include <flixel/group/FlxTypedGroup.h>
 #endif
+#ifndef INCLUDED_flixel_input_FlxBaseKeyList
+#include <flixel/input/FlxBaseKeyList.h>
+#endif
+#ifndef INCLUDED_flixel_input_FlxKeyManager
+#include <flixel/input/FlxKeyManager.h>
+#endif
+#ifndef INCLUDED_flixel_input_IFlxInput
+#include <flixel/input/IFlxInput.h>
+#endif
+#ifndef INCLUDED_flixel_input_IFlxInputManager
+#include <flixel/input/IFlxInputManager.h>
+#endif
+#ifndef INCLUDED_flixel_input_keyboard_FlxKeyList
+#include <flixel/input/keyboard/FlxKeyList.h>
+#endif
+#ifndef INCLUDED_flixel_input_keyboard_FlxKeyboard
+#include <flixel/input/keyboard/FlxKeyboard.h>
+#endif
+#ifndef INCLUDED_flixel_math_FlxBasePoint
+#include <flixel/math/FlxBasePoint.h>
+#endif
 #ifndef INCLUDED_flixel_text_FlxText
 #include <flixel/text/FlxText.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxButton
+#include <flixel/ui/FlxButton.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxTypedButton_flixel_text_FlxText
+#include <flixel/ui/FlxTypedButton_flixel_text_FlxText.h>
 #endif
 #ifndef INCLUDED_flixel_util_IFlxDestroyable
 #include <flixel/util/IFlxDestroyable.h>
 #endif
+#ifndef INCLUDED_flixel_util_IFlxPooled
+#include <flixel/util/IFlxPooled.h>
+#endif
 
-HX_DEFINE_STACK_FRAME(_hx_pos_af23706db05c7feb_8_new,"PlayState","new",0xf8bf96cf,"PlayState.new","PlayState.hx",8,0xb30d7781)
-HX_LOCAL_STACK_FRAME(_hx_pos_af23706db05c7feb_11_create,"PlayState","create",0x82220fed,"PlayState.create","PlayState.hx",11,0xb30d7781)
-HX_LOCAL_STACK_FRAME(_hx_pos_af23706db05c7feb_23_update,"PlayState","update",0x8d182efa,"PlayState.update","PlayState.hx",23,0xb30d7781)
+HX_DEFINE_STACK_FRAME(_hx_pos_af23706db05c7feb_11_new,"PlayState","new",0xf8bf96cf,"PlayState.new","PlayState.hx",11,0xb30d7781)
+HX_LOCAL_STACK_FRAME(_hx_pos_af23706db05c7feb_17_create,"PlayState","create",0x82220fed,"PlayState.create","PlayState.hx",17,0xb30d7781)
+HX_LOCAL_STACK_FRAME(_hx_pos_af23706db05c7feb_38_onButtonClick,"PlayState","onButtonClick",0xac832146,"PlayState.onButtonClick","PlayState.hx",38,0xb30d7781)
+HX_LOCAL_STACK_FRAME(_hx_pos_af23706db05c7feb_42_update,"PlayState","update",0x8d182efa,"PlayState.update","PlayState.hx",42,0xb30d7781)
 
 void PlayState_obj::__construct(){
-            	HX_STACKFRAME(&_hx_pos_af23706db05c7feb_8_new)
-HXDLIN(   8)		super::__construct();
+            	HX_STACKFRAME(&_hx_pos_af23706db05c7feb_11_new)
+HXDLIN(  11)		super::__construct();
             	}
 
 Dynamic PlayState_obj::__CreateEmpty() { return new PlayState_obj; }
@@ -69,41 +100,112 @@ bool PlayState_obj::_hx_isInstanceOf(int inClassId) {
 }
 
 void PlayState_obj::create(){
-            	HX_GC_STACKFRAME(&_hx_pos_af23706db05c7feb_11_create)
-HXLINE(  12)		this->super::create();
-HXLINE(  14)		 ::flixel::text::FlxText text =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,0,0,0,HX_("Hello World! \nwhats good",55,6b,fd,f5),16,null());
-HXLINE(  15)		{
-HXLINE(  15)			int axes = 17;
-HXDLIN(  15)			bool _hx_tmp;
-HXDLIN(  15)			if ((axes != 1)) {
-HXLINE(  15)				_hx_tmp = (axes == 17);
+            	HX_GC_STACKFRAME(&_hx_pos_af23706db05c7feb_17_create)
+HXLINE(  19)		this->player =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,100,100,null());
+HXLINE(  20)		this->player->loadGraphic(HX_("assets/player.jpg",a0,d2,1d,38),null(),null(),null(),null(),null());
+HXLINE(  21)		{
+HXLINE(  21)			 ::flixel::math::FlxBasePoint this1 = this->player->scale;
+HXDLIN(  21)			this1->set_x(((Float)0.3));
+HXDLIN(  21)			this1->set_y(((Float)0.3));
+            		}
+HXLINE(  22)		this->add(this->player);
+HXLINE(  24)		this->text =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,100,100,null(),HX_("button is not pressed",cd,97,a1,88),16,null());
+HXLINE(  25)		 ::flixel::ui::FlxButton button =  ::flixel::ui::FlxButton_obj::__alloc( HX_CTX ,100,100,HX_("click me!",f1,21,a0,09),this->onButtonClick_dyn());
+HXLINE(  26)		{
+HXLINE(  26)			int axes = 17;
+HXDLIN(  26)			bool _hx_tmp;
+HXDLIN(  26)			if ((axes != 1)) {
+HXLINE(  26)				_hx_tmp = (axes == 17);
             			}
             			else {
-HXLINE(  15)				_hx_tmp = true;
+HXLINE(  26)				_hx_tmp = true;
             			}
-HXDLIN(  15)			if (_hx_tmp) {
-HXLINE(  15)				int _hx_tmp1 = ::flixel::FlxG_obj::width;
-HXDLIN(  15)				text->set_x(((( (Float)(_hx_tmp1) ) - text->get_width()) / ( (Float)(2) )));
+HXDLIN(  26)			if (_hx_tmp) {
+HXLINE(  26)				int _hx_tmp1 = ::flixel::FlxG_obj::width;
+HXDLIN(  26)				button->set_x(((( (Float)(_hx_tmp1) ) - button->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN(  15)			bool _hx_tmp2;
-HXDLIN(  15)			if ((axes != 16)) {
-HXLINE(  15)				_hx_tmp2 = (axes == 17);
+HXDLIN(  26)			bool _hx_tmp2;
+HXDLIN(  26)			if ((axes != 16)) {
+HXLINE(  26)				_hx_tmp2 = (axes == 17);
             			}
             			else {
-HXLINE(  15)				_hx_tmp2 = true;
+HXLINE(  26)				_hx_tmp2 = true;
             			}
-HXDLIN(  15)			if (_hx_tmp2) {
-HXLINE(  15)				int _hx_tmp3 = ::flixel::FlxG_obj::height;
-HXDLIN(  15)				text->set_y(((( (Float)(_hx_tmp3) ) - text->get_height()) / ( (Float)(2) )));
+HXDLIN(  26)			if (_hx_tmp2) {
+HXLINE(  26)				int _hx_tmp3 = ::flixel::FlxG_obj::height;
+HXDLIN(  26)				button->set_y(((( (Float)(_hx_tmp3) ) - button->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE(  16)		this->add(text);
+HXLINE(  27)		{
+HXLINE(  27)			 ::flixel::math::FlxBasePoint this2 = button->scale;
+HXDLIN(  27)			this2->set_x(( (Float)(2) ));
+HXDLIN(  27)			this2->set_y(( (Float)(2) ));
+            		}
+HXLINE(  28)		button->updateHitbox();
+HXLINE(  29)		{
+HXLINE(  29)			 ::flixel::text::FlxText _this = this->text;
+HXDLIN(  29)			int axes1 = 17;
+HXDLIN(  29)			bool _hx_tmp4;
+HXDLIN(  29)			if ((axes1 != 1)) {
+HXLINE(  29)				_hx_tmp4 = (axes1 == 17);
+            			}
+            			else {
+HXLINE(  29)				_hx_tmp4 = true;
+            			}
+HXDLIN(  29)			if (_hx_tmp4) {
+HXLINE(  29)				int _hx_tmp5 = ::flixel::FlxG_obj::width;
+HXDLIN(  29)				_this->set_x(((( (Float)(_hx_tmp5) ) - _this->get_width()) / ( (Float)(2) )));
+            			}
+HXDLIN(  29)			bool _hx_tmp6;
+HXDLIN(  29)			if ((axes1 != 16)) {
+HXLINE(  29)				_hx_tmp6 = (axes1 == 17);
+            			}
+            			else {
+HXLINE(  29)				_hx_tmp6 = true;
+            			}
+HXDLIN(  29)			if (_hx_tmp6) {
+HXLINE(  29)				int _hx_tmp7 = ::flixel::FlxG_obj::height;
+HXDLIN(  29)				_this->set_y(((( (Float)(_hx_tmp7) ) - _this->get_height()) / ( (Float)(2) )));
+            			}
+            		}
+HXLINE(  30)		 ::flixel::text::FlxText fh = this->text;
+HXDLIN(  30)		fh->set_y((fh->y + 45));
+HXLINE(  32)		this->add(this->text);
+HXLINE(  33)		this->add(button);
             	}
 
 
+void PlayState_obj::onButtonClick(){
+            	HX_STACKFRAME(&_hx_pos_af23706db05c7feb_38_onButtonClick)
+HXDLIN(  38)		this->text->set_text(HX_("Yo that button was clicked",71,8e,28,f9));
+            	}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(PlayState_obj,onButtonClick,(void))
+
 void PlayState_obj::update(Float elapsed){
-            	HX_STACKFRAME(&_hx_pos_af23706db05c7feb_23_update)
-HXDLIN(  23)		this->super::update(elapsed);
+            	HX_STACKFRAME(&_hx_pos_af23706db05c7feb_42_update)
+HXLINE(  43)		this->super::update(elapsed);
+HXLINE(  45)		 ::flixel::input::keyboard::FlxKeyList _this = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
+HXDLIN(  45)		if (_this->keyManager->checkStatusUnsafe(37,_this->status)) {
+HXLINE(  47)			 ::flixel::FlxSprite fh = this->player;
+HXDLIN(  47)			fh->set_x((fh->x - ( (Float)(2) )));
+            		}
+HXLINE(  49)		 ::flixel::input::keyboard::FlxKeyList _this1 = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
+HXDLIN(  49)		if (_this1->keyManager->checkStatusUnsafe(39,_this1->status)) {
+HXLINE(  51)			 ::flixel::FlxSprite fh1 = this->player;
+HXDLIN(  51)			fh1->set_x((fh1->x + 2));
+            		}
+HXLINE(  53)		 ::flixel::input::keyboard::FlxKeyList _this2 = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
+HXDLIN(  53)		if (_this2->keyManager->checkStatusUnsafe(38,_this2->status)) {
+HXLINE(  55)			 ::flixel::FlxSprite fh2 = this->player;
+HXDLIN(  55)			fh2->set_y((fh2->y - ( (Float)(2) )));
+            		}
+HXLINE(  57)		 ::flixel::input::keyboard::FlxKeyList _this3 = ( ( ::flixel::input::keyboard::FlxKeyList)(::flixel::FlxG_obj::keys->pressed) );
+HXDLIN(  57)		if (_this3->keyManager->checkStatusUnsafe(40,_this3->status)) {
+HXLINE(  59)			 ::flixel::FlxSprite fh3 = this->player;
+HXDLIN(  59)			fh3->set_y((fh3->y + 2));
+            		}
             	}
 
 
@@ -125,23 +227,72 @@ PlayState_obj::PlayState_obj()
 {
 }
 
+void PlayState_obj::__Mark(HX_MARK_PARAMS)
+{
+	HX_MARK_BEGIN_CLASS(PlayState);
+	HX_MARK_MEMBER_NAME(player,"player");
+	HX_MARK_MEMBER_NAME(text,"text");
+	 ::flixel::FlxState_obj::__Mark(HX_MARK_ARG);
+	HX_MARK_END_CLASS();
+}
+
+void PlayState_obj::__Visit(HX_VISIT_PARAMS)
+{
+	HX_VISIT_MEMBER_NAME(player,"player");
+	HX_VISIT_MEMBER_NAME(text,"text");
+	 ::flixel::FlxState_obj::__Visit(HX_VISIT_ARG);
+}
+
 ::hx::Val PlayState_obj::__Field(const ::String &inName,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
+	case 4:
+		if (HX_FIELD_EQ(inName,"text") ) { return ::hx::Val( text ); }
+		break;
 	case 6:
+		if (HX_FIELD_EQ(inName,"player") ) { return ::hx::Val( player ); }
 		if (HX_FIELD_EQ(inName,"create") ) { return ::hx::Val( create_dyn() ); }
 		if (HX_FIELD_EQ(inName,"update") ) { return ::hx::Val( update_dyn() ); }
+		break;
+	case 13:
+		if (HX_FIELD_EQ(inName,"onButtonClick") ) { return ::hx::Val( onButtonClick_dyn() ); }
 	}
 	return super::__Field(inName,inCallProp);
 }
 
+::hx::Val PlayState_obj::__SetField(const ::String &inName,const ::hx::Val &inValue,::hx::PropertyAccess inCallProp)
+{
+	switch(inName.length) {
+	case 4:
+		if (HX_FIELD_EQ(inName,"text") ) { text=inValue.Cast<  ::flixel::text::FlxText >(); return inValue; }
+		break;
+	case 6:
+		if (HX_FIELD_EQ(inName,"player") ) { player=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
+	}
+	return super::__SetField(inName,inValue,inCallProp);
+}
+
+void PlayState_obj::__GetFields(Array< ::String> &outFields)
+{
+	outFields->push(HX_("player",61,eb,b8,37));
+	outFields->push(HX_("text",ad,cc,f9,4c));
+	super::__GetFields(outFields);
+};
+
 #ifdef HXCPP_SCRIPTABLE
-static ::hx::StorageInfo *PlayState_obj_sMemberStorageInfo = 0;
+static ::hx::StorageInfo PlayState_obj_sMemberStorageInfo[] = {
+	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(PlayState_obj,player),HX_("player",61,eb,b8,37)},
+	{::hx::fsObject /*  ::flixel::text::FlxText */ ,(int)offsetof(PlayState_obj,text),HX_("text",ad,cc,f9,4c)},
+	{ ::hx::fsUnknown, 0, null()}
+};
 static ::hx::StaticInfo *PlayState_obj_sStaticStorageInfo = 0;
 #endif
 
 static ::String PlayState_obj_sMemberFields[] = {
+	HX_("player",61,eb,b8,37),
+	HX_("text",ad,cc,f9,4c),
 	HX_("create",fc,66,0f,7c),
+	HX_("onButtonClick",17,5a,f3,f8),
 	HX_("update",09,86,05,87),
 	::String(null()) };
 

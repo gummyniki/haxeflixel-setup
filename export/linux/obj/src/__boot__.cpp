@@ -970,6 +970,12 @@
 #ifndef INCLUDED_flixel_util__FlxAxes_FlxAxes_Impl_
 #include <flixel/util/_FlxAxes/FlxAxes_Impl_.h>
 #endif
+#ifndef INCLUDED_flixel_ui_FlxButton
+#include <flixel/ui/FlxButton.h>
+#endif
+#ifndef INCLUDED_flixel_ui__FlxButton_FlxButtonState_Impl_
+#include <flixel/ui/_FlxButton/FlxButtonState_Impl_.h>
+#endif
 #ifndef INCLUDED_flixel_tweens_FlxEase
 #include <flixel/tweens/FlxEase.h>
 #endif
@@ -2659,6 +2665,15 @@
 #ifndef INCLUDED_flixel_util_FlxArrayUtil
 #include <flixel/util/FlxArrayUtil.h>
 #endif
+#ifndef INCLUDED_flixel_ui__FlxButton_FlxButtonEvent
+#include <flixel/ui/_FlxButton/FlxButtonEvent.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxTypedButton
+#include <flixel/ui/FlxTypedButton.h>
+#endif
+#ifndef INCLUDED_flixel_ui_FlxTypedButton_flixel_text_FlxText
+#include <flixel/ui/FlxTypedButton_flixel_text_FlxText.h>
+#endif
 #ifndef INCLUDED_flixel_tweens_motion_QuadPath
 #include <flixel/tweens/motion/QuadPath.h>
 #endif
@@ -3679,6 +3694,8 @@ __files__boot();
 ::flixel::util::FlxBitmapDataUtil_obj::__register();
 ::flixel::util::FlxBitmapDataPool_obj::__register();
 ::flixel::util::_FlxAxes::FlxAxes_Impl__obj::__register();
+::flixel::ui::FlxButton_obj::__register();
+::flixel::ui::_FlxButton::FlxButtonState_Impl__obj::__register();
 ::flixel::tweens::FlxEase_obj::__register();
 ::flixel::tile::FlxBaseTilemap_obj::__register();
 ::flixel::text::_FlxText::FlxTextAlign_Impl__obj::__register();
@@ -4242,6 +4259,9 @@ __files__boot();
 ::flixel::util::FlxColorTransformUtil_obj::__register();
 ::flixel::util::_FlxBitmapDataPool::FlxBitmapDataPoolNode_obj::__register();
 ::flixel::util::FlxArrayUtil_obj::__register();
+::flixel::ui::_FlxButton::FlxButtonEvent_obj::__register();
+::flixel::ui::FlxTypedButton_obj::__register();
+::flixel::ui::FlxTypedButton_flixel_text_FlxText_obj::__register();
 ::flixel::tweens::motion::QuadPath_obj::__register();
 ::flixel::tweens::motion::QuadMotion_obj::__register();
 ::flixel::tweens::motion::LinearPath_obj::__register();
@@ -4638,6 +4658,8 @@ __files__boot();
 ::flixel::text::_FlxText::FlxTextAlign_Impl__obj::__boot();
 ::flixel::tile::FlxBaseTilemap_obj::__boot();
 ::flixel::tweens::FlxEase_obj::__boot();
+::flixel::ui::_FlxButton::FlxButtonState_Impl__obj::__boot();
+::flixel::ui::FlxButton_obj::__boot();
 ::flixel::util::_FlxAxes::FlxAxes_Impl__obj::__boot();
 ::flixel::util::FlxBitmapDataPool_obj::__boot();
 ::flixel::util::FlxBitmapDataUtil_obj::__boot();

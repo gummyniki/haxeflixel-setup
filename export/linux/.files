@@ -1,5 +1,6 @@
 export/linux/bin/assets/sounds/sounds-go-here.txt
 export/linux/bin/assets/data/data-goes-here.txt
+export/linux/bin/assets/player.jpg
 export/linux/bin/assets/images/images-go-here.txt
 export/linux/bin/assets/music/music-goes-here.txt
 export/linux/bin/flixel/sounds/flixel.ogg
